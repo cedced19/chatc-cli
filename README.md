@@ -10,4 +10,22 @@ It's a simple chat.
 
 This chat will be upgrade soon.
 
+Before launch:
+
+```bash
+$ npm install
+```
+
+To launch:
+
+```bash
+$ node server.js
+```
+
+To minify:
+
+```bash
+$ grunt
+```
+
 ![](demo.png)
