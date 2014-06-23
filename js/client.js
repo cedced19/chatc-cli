@@ -3,6 +3,7 @@
         var msg = $('#msgtpl').html();
         var lastmsg = false;
         $('#msgtpl').remove();
+        var currentusr = "username"
 
         //Replace "localhost" with your server IP
         var socket = io.connect('localhost:1337');
@@ -15,6 +16,7 @@
             alert('Vous devez entrer un pseudo !');
           }else{
               socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
+              currentusr = $('#username').val()
           };
             return false;
           });
@@ -35,6 +37,9 @@
           if(lastmsg != message.user.id){
             $('#messages').append('<div class="sep"></div>');
             lastmsg = message.user.id;
+          }
+          if(message.user.username == currentusr){
+            message.user.username = "Moi"
           }
           $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
           $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
