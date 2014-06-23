@@ -1,6 +1,7 @@
 #ChatC-Web
 
-[![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)(https://travis-ci.org/cedced19/ChatC-Web)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 A chat with Socket.io and Node.js !
 
