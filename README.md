@@ -2,7 +2,7 @@
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-A chat with Node.js !
+A chat with Socket.io and Node.js !
 
 It's my first realy application with Node.js !
 

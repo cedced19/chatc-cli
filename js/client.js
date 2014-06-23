@@ -4,7 +4,8 @@
         var lastmsg = false;
         $('#msgtpl').remove();
 
-        var socket = io.connect('88.123.20.42:1337');
+        //Replace "localhost" with your server IP
+        var socket = io.connect('localhost:1337');
 
         $('#loginform').submit(function(event){
           event.preventDefault();

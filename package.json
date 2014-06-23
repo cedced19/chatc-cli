@@ -1,8 +1,11 @@
 {
   "name": "chat-c-web",
   "version": "0.0.1",
-  "description": "A chat with Socket.io",
+  "description": "A chat with Socket.io and Node.js",
   "main": "server.js",
+  "engines" : {
+    "node" : "¨^0.10.29"
+    },
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6"
