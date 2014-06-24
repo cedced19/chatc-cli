@@ -1,7 +1,7 @@
 (function($){
 
         var msg = $('#msgtpl').html();
-        var lastmsg = false;
+        var lastsender = false;
         $('#msgtpl').remove();
         var currentusr = "username";
 
@@ -34,12 +34,14 @@
         });
 
         socket.on('newmsg', function(message){
-          if(lastmsg != message.user.id){
+          if(lastsender != message.user.id){
             $('#messages').append('<div class="sep"></div>');
-            lastmsg = message.user.id;
-          }
+            lastsender = message.user.id;
+          };
           if(message.user.username == currentusr){
             message.user.username = "Moi";
+          }else{
+            $('#sound')[0].play();
           };
           $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
           $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
@@ -51,7 +53,7 @@
 
         socket.on('newusr', function(user){
           if(user.username == currentusr){
-            user.username = "Moi"
+            user.username = "Moi";
           }
           $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">')
         });

@@ -52,6 +52,14 @@ body {
   background-color:#2ecc71;
   color: #4e4e4e; }
 
+audio{
+  display: none;
+}
+
+
+
+
+
 #users {
   position: fixed;
   top: 0;
