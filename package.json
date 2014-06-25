@@ -1,7 +1,7 @@
 {
   "name": "chat-c-web",
-  "version": "0.0.4",
-  "description": "A chat with Socket.io and Node.js",
+  "version": "0.1.0",
+  "description": "A chat with Socket.io",
   "main": "server.js",
   "engines" : {
     "node" : "¨^0.10.29"

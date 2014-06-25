@@ -10,15 +10,20 @@
 
         $('#loginform').submit(function(event){
           event.preventDefault();
-          if($('#mail').val() == ''){
-            alert('Vous devez entrer un mail !');
-          }else if($('#username').val() == ''){
-            alert('Vous devez entrer un pseudo !');
+          var use = MD5($('#mail').val());
+          if(($("#"+use)).length){
+              alert('L\'email ' + $('#mail').val() +  'est déjà utilisé');
           }else{
-              socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
-              currentusr = $('#username').val();
+            if($('#mail').val() == ''){
+                alert('Vous devez entrer un mail !');
+              }else if($('#username').val() == ''){
+                alert('Vous devez entrer un pseudo !');
+              }else{
+                  socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
+                  currentusr = $('#username').val();
+              };
           };
-            return false;
+          return false;
           });
 
         $('#form').submit(function(event){
