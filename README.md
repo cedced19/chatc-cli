@@ -11,22 +11,22 @@ It's a simple chat.
 
 This chat will be upgrade soon.
 
-Before launch:
+To launch in developpement:
 
 ```bash
 $ npm install
-```
-
-To launch:
-
-```bash
 $ node server.js
 ```
 
-To minify:
+To launch in release:
 
 ```bash
+$ npm install
 $ grunt
+$ cd public/
+$ node server.js
 ```
+
+NOTE: public/ is the dist folder.
 
 ![](demo.png)
