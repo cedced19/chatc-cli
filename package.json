@@ -1,11 +1,8 @@
 {
   "name": "chat-c-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A chat with Socket.io",
   "main": "server.js",
-  "engines" : {
-    "node" : "¨^0.10.29"
-    },
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6"
@@ -15,6 +12,8 @@
     "grunt-contrib-uglify": "~0.2.7",
     "matchdep": "~0.3.0",
     "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-copy": "~0.4.1",
     "grunt-usemin": "^2.2.0"
   },
   "author": {

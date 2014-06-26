@@ -5,23 +5,23 @@
         $('#msgtpl').remove();
         var currentusr = "username";
 
-        //Replace "localhost" with your server IP
-        var socket = io.connect('localhost:1337');
+         //Replace "localhost" with your server IP
+        var socket = io.connect('88.123.20.42:1337');
 
         $('#loginform').submit(function(event){
           event.preventDefault();
+
           var use = MD5($('#mail').val());
-          if(($("#"+use)).length){
-              alert('L\'email ' + $('#mail').val() +  'est déjà utilisé');
-          }else{
-            if($('#mail').val() == ''){
+
+          if($('#mail').val() == ''){
                 alert('Vous devez entrer un mail !');
-              }else if($('#username').val() == ''){
+          }else if(($("#"+use)).length){
+                alert('L\'email ' + $('#mail').val() +  ' est déjà utilisé');
+          }else if($('#username').val() == ''){
                 alert('Vous devez entrer un pseudo !');
-              }else{
-                  socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
-                  currentusr = $('#username').val();
-              };
+          }else{
+                socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
+                currentusr = $('#username').val();
           };
           return false;
           });
