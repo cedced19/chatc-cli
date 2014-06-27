@@ -18,8 +18,8 @@ This chat will be upgrade soon.
 Yeoman genertor:
 
 ```bash
-$ npm install -g generator-chat
 $ npm install -g yo
+$ npm install -g generator-chat
 $ yo chat
 ```
 
