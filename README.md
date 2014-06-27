@@ -15,6 +15,8 @@ This chat will be upgrade soon.
 
 ##Intall and developpement
 
+Yeoman genertor:
+
 ```bash
 $ npm install -g generator-chat
 $ npm install -g yo
