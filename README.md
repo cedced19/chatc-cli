@@ -11,6 +11,16 @@ It's a simple chat.
 
 This chat will be upgrade soon.
 
+![](demo.png)
+
+##Intall and developpement
+
+```bash
+$ npm install -g generator-chat
+$ npm install -g yo
+$ yo chat
+```
+
 To launch in developpement:
 
 ```bash
@@ -28,5 +38,3 @@ $ node server.js
 ```
 
 NOTE: public/ is the dist folder.
-
-![](demo.png)
