@@ -62,11 +62,11 @@ io.sockets.on('connection', function(socket){
         message.m = date.getMinutes();
 
         if(message.h < 10 ){
-          message.h = '0' + message.h
+          message.h = '0' + message.h;
         }
 
         if(message.m < 10 ){
-          message.m = '0' + message.m
+          message.m = '0' + message.m;
         }
         io.sockets.emit('newmsg', message);
     });

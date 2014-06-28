@@ -59,6 +59,12 @@ audio{
   background-color: #2ecc71;
   color:#FFF;}
 
+ a{
+  text-decoration: none;
+  color: #87858F;
+  border-bottom:1px dotted #87858F;
+ }
+
 #users {
   position: fixed;
   top: 0;

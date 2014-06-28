@@ -31,7 +31,7 @@
           if($('#message').val() == ''){
               alert('Vous devez entrer un message !');
             }else{
-              socket.emit('newmsg', {message : $('#message').val() });
+              socket.emit('newmsg', {message : {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
             };
             $('#message').focus();
