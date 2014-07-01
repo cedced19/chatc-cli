@@ -22,6 +22,7 @@
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
                 currentusr = $('#username').val();
+                $('#message').focus();
           };
           return false;
           });

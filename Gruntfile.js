@@ -17,6 +17,7 @@ module.exports = function(grunt) {
             'sound.ogg',
             '.gitignore',
             'font/**.*',
+            'favicon.ico',
             'server.js'
           ],
           dest: 'public/'
