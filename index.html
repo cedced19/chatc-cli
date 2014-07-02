@@ -8,24 +8,6 @@
     <title>Chat C Web</title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-    <meta name="author" content="Cedced19">
-    <meta name="description" content="Un chat utilisant Node.js." />
-
-    <meta name="twitter:cars" content="summary">
-    <meta name="twitter:title" content="Cedced19">
-    <meta name="twitter:image" content="http://cedced19.github.io/profile.png">
-    <meta name="twitter:site" content="@cedced19">
-    <meta name="twitter:author" content="@cedced19">
-    <meta name="twitter:description" content="Un chat utilisant Node.js." />
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Cedced19">
-    <meta property="og:image" content="http://cedced19.github.io/profile.png">
-    <meta property="og:language" content="fr_FR">
-    <meta property="og:url" content="cedced19.github.io">
-    <meta property="og:description" content="Un chat utilisant Node.js." />
-
-    <link href="//plus.google.com/104855167193751168501/" rel="publisher">
   </head>
 
   <body>
@@ -37,6 +19,12 @@
         <img src="{{{user.avatar}}}">
         <div class="info">
           <p><strong>{{user.username}}</strong></p>
+          <p>{{{message}}}</p>
+          <span class="date">{{h}}:{{m}}</span>
+        </div>
+      </div>
+      <div class="message" id="msgtpl-line" style="display:none;">
+        <div class="info">
           <p>{{{message}}}</p>
           <span class="date">{{h}}:{{m}}</span>
         </div>

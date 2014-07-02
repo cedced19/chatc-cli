@@ -1,9 +1,11 @@
 (function($){
 
         var msg = $('#msgtpl').html();
-        var lastsender = false;
+        var msgline = $('#msgtpl-line').html();
         $('#msgtpl').remove();
-        var currentusr = "username";
+        $('#msgtpl-line').remove();
+        var lastsender = false;
+        var currentusr = false;
 
          //Replace "localhost" with your server IP
         var socket = io.connect('88.123.20.42:1337');
@@ -42,14 +44,18 @@
         socket.on('newmsg', function(message){
           if(lastsender != message.user.id){
             $('#messages').append('<div class="sep"></div>');
+            $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
             lastsender = message.user.id;
+          }else{
+            $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
           };
+
           if(message.user.username == currentusr){
             message.user.username = "Moi";
           }else{
             $('#sound')[0].play();
           };
-          $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
+
           $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
         });
 
