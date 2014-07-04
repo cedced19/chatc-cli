@@ -58,27 +58,31 @@ io.sockets.on('connection', function(socket){
     socket.on('newmsg', function(message){
         message.user = me;
         date = new Date();
-        message.h = date.getHours();
-        message.m = date.getMinutes();
-
-        if(message.h < 10 ){
-          message.h = '0' + message.h;
-        }
-
-        if(message.m < 10 ){
-          message.m = '0' + message.m;
-        }
+        message.time = getTime();
         io.sockets.emit('newmsg', message);
     });
 
     socket.on('login', function(user){
+      var md5Mail = md5(user.mail.toLowerCase()),
+      error = null;
+
+      for(var k in users){
+          if(k == md5Mail){
+            error = "Cette email est déjà utilisé";
+          }
+      }
+
+      if(error !== null){
+        socket.emit('logerr', error);
+      }else{
        me = user;
-       me.id = md5(user.mail);
+       me.id = md5Mail;
        me.avatar = '//gravatar.com/avatar/' + me.id + '?s=50';
        socket.emit('logged');
        users[me.id] = me;
        io.sockets.emit('newusr', me);
-    });
+    }
+  });
 
     socket.on('disconnect', function(){
         if(!me){
@@ -88,3 +92,11 @@ io.sockets.on('connection', function(socket){
        io.sockets.emit('disusr', me);
     });
 });
+
+function getTime(){
+  var date = new Date(),
+    h = date.getHours(),
+    m = date.getMinutes();
+
+  return (h < 10 ? "0" : "") + h + ':' + (m < 10 ? "0" : "") + m;
+}

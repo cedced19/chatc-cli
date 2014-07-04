@@ -1,6 +1,6 @@
 {
   "name": "chatc-web",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A chat with Socket.io",
   "main": "server.js",
   "dependencies": {

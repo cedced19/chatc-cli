@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'public/js/scripts.js': ['js/jquery.min.js', 'js/mustache.js','js/md5.js', 'js/mute.js', 'js/twitter-text.js', 'js/client.js']
+          'public/js/scripts.js': ['js/jquery.min.js', 'js/mustache.js', 'js/mute.js', 'js/twitter-text.js', 'js/client.js']
         }
       }
     },
