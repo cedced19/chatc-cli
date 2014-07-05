@@ -57,7 +57,6 @@ io.sockets.on('connection', function(socket){
 
     socket.on('newmsg', function(message){
         message.user = me;
-        date = new Date();
         message.time = getTime();
         io.sockets.emit('newmsg', message);
     });

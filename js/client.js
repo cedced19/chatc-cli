@@ -8,7 +8,7 @@
         var currentusr = "";
 
          //Replace "localhost" with your server IP
-        var socket = io.connect('88.123.20.42:1337');
+        var socket = io.connect('localhost:1337');
 
         $('#loginform').submit(function(event){
           event.preventDefault();
@@ -51,8 +51,6 @@
           }else{
             $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
           };
-
-
 
           $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
         });
