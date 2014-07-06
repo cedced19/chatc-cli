@@ -25,7 +25,7 @@
           return false;
           });
 
-        $('#form').submit(function(event){
+        $('#msgform').submit(function(event){
           event.preventDefault();
           if($('#message').val() == ''){
               alert('Vous devez entrer un message !');
