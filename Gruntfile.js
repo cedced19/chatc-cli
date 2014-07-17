@@ -40,12 +40,23 @@ module.exports = function(grunt) {
     },
     usemin: {
       html: 'public/index.html'
-    }
-  };
+    },
+  htmlmin: {
+        dist: {
+          options: {
+            removeComments: true,
+            collapseWhitespace: true
+          },
+          files: {
+            'public/index.html': 'public/index.html'
+          }
+      }
+  }
+};
 
   grunt.initConfig(config);
 
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['clean','copy', 'uglify', 'cssmin', 'usemin']);
+  grunt.registerTask('default', ['clean','copy', 'uglify', 'cssmin', 'usemin', 'htmlmin']);
 };

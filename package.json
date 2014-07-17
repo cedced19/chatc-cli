@@ -1,6 +1,6 @@
 {
   "name": "chatc-web",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A chat with Socket.io",
   "main": "server.js",
   "dependencies": {
@@ -14,7 +14,8 @@
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
-    "grunt-usemin": "^2.2.0"
+    "grunt-usemin": "^2.2.0",
+    "grunt-contrib-htmlmin": "^0.3.0"
   },
   "author": {
     "name": "Cédric",
