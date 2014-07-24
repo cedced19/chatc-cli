@@ -1,11 +1,12 @@
 {
   "name": "chatc-web",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A chat with Socket.io",
   "main": "server.js",
   "dependencies": {
     "MD5": "^1.2.1",
-    "socket.io": "^1.0.6"
+    "socket.io": "^1.0.6",
+    "fast-http": "^0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

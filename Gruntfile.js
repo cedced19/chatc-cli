@@ -11,6 +11,7 @@ module.exports = function(grunt) {
           src: [
             'node_modules/MD5/**/*',
             'node_modules/socket.io/**/*',
+            'node_modules/fast-http/**/*',
             '*.html',
             'package.json',
             'sound.mp3',
@@ -27,7 +28,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'public/js/scripts.js': ['js/jquery.min.js', 'js/mustache.js', 'js/mute.js', 'js/twitter-text.js', 'js/client.js']
+          'public/js/scripts.js': ['js/jquery.min.js', 'js/mustache.js', 'js/twitter-text.js', 'js/mute.js', 'js/client.js']
         }
       }
     },
