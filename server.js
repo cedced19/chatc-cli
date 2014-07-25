@@ -1,8 +1,8 @@
 var md5 = require("MD5"),
       fastHttp = require("fast-http"),
-      port = process.argv[2] || 1337;
+      port = 1337;
 
-httpServer = fastHttp(port).listen(parseInt(port, 10));
+httpServer = fastHttp(port);
 console.log("Server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
 
 var io = require('socket.io').listen(httpServer);
