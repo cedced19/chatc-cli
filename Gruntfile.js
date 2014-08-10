@@ -18,29 +18,20 @@ module.exports = function(grunt) {
             'sound.ogg',
             '.gitignore',
             'font/**.*',
+            'js/*.js',
+            'css/*.css',
             'favicon.ico',
             'server.js'
           ],
-          dest: 'public/'
+          dest: 'dist/'
         }]
       }
     },
-    uglify: {
-      my_target: {
-        files: {
-          'public/js/scripts.js': ['js/jquery.min.js', 'js/mustache.js', 'js/twitter-text.js', 'js/mute.js', 'js/client.js']
-        }
-      }
-    },
-    cssmin: {
-       combine: {
-         files: {
-            'public/css/styles.css': ['css/*.css']
-          }
-       }
+    useminPrepare: {
+          html: 'index.html'
     },
     usemin: {
-      html: 'public/index.html'
+        html: 'dist/index.html'
     },
   htmlmin: {
         dist: {
@@ -49,7 +40,7 @@ module.exports = function(grunt) {
             collapseWhitespace: true
           },
           files: {
-            'public/index.html': 'public/index.html'
+            'dist/index.html': 'dist/index.html'
           }
       }
   }
@@ -59,5 +50,5 @@ module.exports = function(grunt) {
 
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['clean','copy', 'uglify', 'cssmin', 'usemin', 'htmlmin']);
+  grunt.registerTask('default', ['copy', 'useminPrepare', 'concat', 'cssmin', 'uglify', 'usemin', 'htmlmin']);
 };

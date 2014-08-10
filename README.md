@@ -37,7 +37,7 @@ To launch in release:
 ```bash
 $ npm install
 $ grunt
-$ cd public/
+$ cd dist/
 $ node server.js
 ```
 
