@@ -1,9 +1,6 @@
 module.exports = function(grunt) {
 
   var config = {
-    clean: {
-      public: 'public/**/*'
-    },
     copy: {
       src: {
         files: [{
