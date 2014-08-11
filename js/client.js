@@ -7,8 +7,7 @@
         var lastsender = false;
         var currentusr = "";
 
-         //Replace "localhost" with your server IP
-        var socket = io.connect('localhost:1337');
+        var socket = io.connect(window.location.host);
 
         $('#loginform').submit(function(event){
           event.preventDefault();
