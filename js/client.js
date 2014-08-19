@@ -18,8 +18,6 @@
                 alert('Vous devez entrer un pseudo !');
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
-                currentusr = $('#username').val();
-                $('#message').focus();
           };
           return false;
           });
@@ -56,6 +54,8 @@
 
         socket.on('logged', function(){
           $('#login').fadeOut();
+          currentusr = $('#username').val();
+          $('#message').focus();
         });
 
         socket.on('newusr', function(user){
