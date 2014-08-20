@@ -13,9 +13,9 @@
           event.preventDefault();
 
           if($('#mail').val() == ''){
-                alert('Vous devez entrer un mail !');
+                alert('You must enter a  mail!');
           }else if($('#username').val() == ''){
-                alert('Vous devez entrer un pseudo !');
+                alert('You must enter a nickname!');
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
           };
@@ -25,7 +25,7 @@
         $('#msgform').submit(function(event){
           event.preventDefault();
           if($('#message').val() == ''){
-              alert('Vous devez entrer un message !');
+              alert('You must enter a  message!');
             }else{
               socket.emit('newmsg', {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
@@ -36,7 +36,7 @@
 
         socket.on('newmsg', function(message){
           if(message.user.username == currentusr){
-            message.user.username = "Moi";
+            message.user.username = 'Me';
           }else{
             $('#sound')[0].play();
           };
@@ -49,7 +49,7 @@
             $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
           };
 
-          $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
+          $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
         });
 
         socket.on('logged', function(){
@@ -60,7 +60,7 @@
 
         socket.on('newusr', function(user){
           if(user.username == currentusr){
-            user.username = "Moi";
+            user.username = 'Me';
           }
           $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">')
         });

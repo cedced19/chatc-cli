@@ -1,5 +1,5 @@
-var md5 = require("MD5"),
-      fastHttp = require("fast-http"),
+var md5 = require('MD5'),
+      fastHttp = require('fast-http'),
       port = 1337;
 
 httpServer = fastHttp(port);
@@ -28,7 +28,7 @@ io.sockets.on('connection', function(socket){
 
       for(var k in users){
           if(k == md5Mail){
-            error = "Cette email est déjà utilisé";
+            error = 'This email is already in use';
           }
       }
 
@@ -58,5 +58,5 @@ function getTime(){
     h = date.getHours(),
     m = date.getMinutes();
 
-  return (h < 10 ? "0" : "") + h + ':' + (m < 10 ? "0" : "") + m;
+  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
 }
