@@ -6,7 +6,7 @@
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6",
-    "fast-http": "^0.0.7"
+    "fast-http": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
