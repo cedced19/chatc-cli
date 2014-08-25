@@ -1,13 +1,27 @@
 (function($){
 
-        var msg = $('#msgtpl').html();
-        var msgline = $('#msgtpl-line').html();
+        var msg = $('#msgtpl').html(),
+              msgline = $('#msgtpl-line').html(),
+              lastsender = false,
+              currentusr = '',
+              uri = 'http://' + window.location.host,
+              socket = io.connect(window.location.host);
+
         $('#msgtpl').remove();
         $('#msgtpl-line').remove();
-        var lastsender = false;
-        var currentusr = "";
 
-        var socket = io.connect(window.location.host);
+         $.getJSON(uri + '/users', function (users) {
+          for (var user in users){
+            displayUser(users[user]);
+          }
+         });
+
+
+         $.getJSON(uri + '/messages', function (messages) {
+          for (var message in messages){
+            displayMessage(messages[message]);
+          }
+         });
 
         $('#loginform').submit(function(event){
           event.preventDefault();
@@ -35,21 +49,7 @@
         });
 
         socket.on('newmsg', function(message){
-          if(message.user.username == currentusr){
-            message.user.username = 'Me';
-          }else{
-            $('#sound')[0].play();
-          };
-
-          if(lastsender != message.user.id){
-            $('#messages').append('<div class="sep"></div>');
-            $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
-            lastsender = message.user.id;
-          }else{
-            $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
-          };
-
-          $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
+          displayMessage(message);
         });
 
         socket.on('logged', function(){
@@ -59,10 +59,7 @@
         });
 
         socket.on('newusr', function(user){
-          if(user.username == currentusr){
-            user.username = 'Me';
-          }
-          $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">')
+          displayUser(user);
         });
 
         socket.on('logerr', function(message){
@@ -74,6 +71,31 @@
             $('#'+user.id).remove();
           });
         });
+
+        function displayUser (user) {
+           if(user.username == currentusr){
+            user.username = 'Me';
+          }
+          $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">');
+        }
+
+        function displayMessage (message) {
+           if(message.user.username == currentusr){
+            message.user.username = 'Me';
+          }else{
+            $('#sound')[0].play();
+          }
+
+          if(lastsender != message.user.id){
+            $('#messages').append('<div class="sep"></div>');
+            $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
+            lastsender = message.user.id;
+          }else{
+            $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
+          }
+          $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
+        }
+
 
 
       })(jQuery);

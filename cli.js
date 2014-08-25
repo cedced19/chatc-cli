@@ -1,24 +1,61 @@
+#!/usr/bin/env node
+'use strict';
 var md5 = require('MD5'),
-      fastHttp = require('fast-http'),
-      port = 1337;
+      opn = require('opn'),
+      express = require('express'),
+      app = express(),
+      serveStatic = require('serve-static'),
+      path = require('path'),
+      fs = require('fs'),
+      chalk = require('chalk'),
+      port = process.argv.slice(2);
 
-httpServer = fastHttp(port);
-console.log("Server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
+if(port.length == 0){
+    console.log(chalk.red('You must enter a port!'));
+    process.exit();
+}
 
-var io = require('socket.io').listen(httpServer);
+var users = new Object(),
+      messages = new Array();
+
+app.get('/', function(req, res) {
+  fs.readFile(__dirname + '/index.html', function(err, data) {
+    res.end(data);
+  });
+});
+
+app.get('/users', function(req, res) {
+        res.json(users);
+});
+
+app.get('/messages', function(req, res) {
+        res.json(messages);
+});
+
+
+app.use(serveStatic(__dirname));
+
+var server = require('http').createServer(app);
+
+server.listen(port[0], function() {
+    console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
+    opn('http://localhost:' + port);
+});
+
+var io = require('socket.io').listen(server);
 var users = new Object();
 
 
 io.sockets.on('connection', function(socket){
     var me = false;
 
-    for (var k in users){
-        socket.emit('newusr', users[k]);
-    };
-
     socket.on('newmsg', function(message){
         message.user = me;
         message.time = getTime();
+        if(messages.length > 10){
+          messages.shift();
+        }
+        messages.push(message);
         io.sockets.emit('newmsg', message);
     });
 

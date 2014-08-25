@@ -1,13 +1,36 @@
 {
-  "name": "chatc-web",
-  "version": "0.1.6",
+  "name": "chatc-cli",
+  "version": "0.1.7",
   "description": "A chat with Socket.io",
-  "main": "server.js",
+  "main": "cli.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bin": {
+    "chat": "cli.js"
+  },
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6",
-    "fast-http": "*"
+    "fast-http": "*",
+    "opn": "^1.0.0",
+    "express": "^4.8.5",
+    "chalk": "^0.5.1",
+    "serve-static": "^1.5.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cedced19/ChatC-Web"
+  },
+  "keywords": [
+    "chat",
+    "http",
+    "realtime",
+    "socket.io",
+    "chat",
+    "realtime",
+    "cli"
+  ],
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.5.0",
@@ -15,6 +38,7 @@
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-usemin": "^2.2.0",
+    "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-htmlmin": "^0.3.0"
   },
   "author": {

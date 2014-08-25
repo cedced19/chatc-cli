@@ -1,2 +1,10 @@
 node_modules/
-public/
+dist/
+.tmp/
+dist/vendor/js/client.js
+dist/vendor/js/jquery.min.js
+dist/vendor/js/mustache.js
+dist/vendor/js/twitter-text.js
+dist/vendor/js/mute.js
+dist/vendor/css/fontello.css
+dist/vendor/css/style.css

@@ -6,16 +6,17 @@
 [![devDependencies](https://david-dm.org/cedced19/ChatC-Web/dev-status.png)](https://david-dm.org/cedced19/ChatC-Web#info=devDependencies)
 
 A chat with Socket.io and Node.js !
-
 It's my first realy application with Node.js !
-
 It's a simple chat.
 
-This chat will be upgrade soon.
+```bash
+$ npm install -g chat-cli
+$ chat <port>
+```
 
 ![](demo.png)
 
-##Intall and developpement
+##Developpement
 
 Yeoman genertor:
 
@@ -41,4 +42,4 @@ $ cd dist/
 $ node server.js
 ```
 
-NOTE: public/ is the dist folder.
+NOTE: dist/ is the dist folder.

@@ -6,14 +6,12 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: [
-            'node_modules/MD5/**/*',
-            'node_modules/socket.io/**/*',
-            'node_modules/fast-http/**/*',
             '*.html',
             'package.json',
-            '.gitignore',
             'vendor/**/*',
             'favicon.ico',
+            'sound.mp3',
+            'sound.ogg',
             'server.js'
           ],
           dest: 'dist/'
