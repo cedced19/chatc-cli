@@ -6,7 +6,7 @@ httpServer = fastHttp(port);
 console.log("Server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
 
 var io = require('socket.io').listen(httpServer);
-var users = {};
+var users = new Object();
 
 
 io.sockets.on('connection', function(socket){

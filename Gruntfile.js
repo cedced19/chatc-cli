@@ -11,12 +11,8 @@ module.exports = function(grunt) {
             'node_modules/fast-http/**/*',
             '*.html',
             'package.json',
-            'sound.mp3',
-            'sound.ogg',
             '.gitignore',
-            'font/**.*',
-            'js/*.js',
-            'css/*.css',
+            'vendor/**/*',
             'favicon.ico',
             'server.js'
           ],
