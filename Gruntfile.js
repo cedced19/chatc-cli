@@ -12,7 +12,7 @@ module.exports = function(grunt) {
             'favicon.ico',
             'sound.mp3',
             'sound.ogg',
-            'server.js'
+            'cli.js'
           ],
           dest: 'dist/'
         }]

@@ -16,15 +16,18 @@ $ chat <port>
 
 ![](demo.png)
 
-##Developpement
 
-Yeoman genertor:
+##Yeoman genertor:
+
+Yeoman genertor was created to select color and language.
 
 ```bash
 $ npm install -g yo
 $ npm install -g generator-chat
 $ yo chat
 ```
+
+##Developement
 
 To launch in developpement:
 
