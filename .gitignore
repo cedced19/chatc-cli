@@ -1,5 +1,4 @@
 node_modules/
-dist/
 .tmp/
 dist/vendor/js/client.js
 dist/vendor/js/jquery.min.js

@@ -12,6 +12,7 @@
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6",
+    "fast-http": "*",
     "opn": "^1.0.0",
     "express": "^4.8.5",
     "chalk": "^0.5.1",
