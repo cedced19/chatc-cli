@@ -33,7 +33,7 @@ To launch in developpement:
 
 ```bash
 $ npm install
-$ node server.js
+$ node cli.js
 ```
 
 To launch in release:
@@ -42,7 +42,7 @@ To launch in release:
 $ npm install
 $ grunt
 $ cd dist/
-$ node server.js
+$ node cli.js
 ```
 
 NOTE: dist/ is the dist folder.
