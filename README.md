@@ -4,6 +4,7 @@
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![Dependencies](https://david-dm.org/cedced19/ChatC-Web.png)](https://david-dm.org/cedced19/ChatC-Web)
 [![devDependencies](https://david-dm.org/cedced19/ChatC-Web/dev-status.png)](https://david-dm.org/cedced19/ChatC-Web#info=devDependencies)
+[![NPM version](https://badge.fury.io/js/chatc-cli.svg)](http://badge.fury.io/js/chatc-cli)
 
 A chat with Socket.io and Node.js !
 It's my first realy application with Node.js !
