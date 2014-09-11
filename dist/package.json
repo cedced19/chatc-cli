@@ -1,6 +1,6 @@
 {
   "name": "chatc-cli",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A chat with Socket.io",
   "main": "cli.js",
   "engines": {
@@ -12,7 +12,6 @@
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6",
-    "fast-http": "*",
     "opn": "^1.0.0",
     "express": "^4.8.5",
     "chalk": "^0.5.1",
