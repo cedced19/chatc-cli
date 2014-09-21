@@ -31,14 +31,16 @@
     "cli"
   ],
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.5.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "~0.6.0",
     "matchdep": "~0.3.0",
     "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-copy": "~0.6.0",
     "grunt-usemin": "^2.2.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-htmlmin": "^0.3.0"
+    "grunt-uncss": "^0.3.6",
+    "grunt-autoprefixer": "^1.0.1"
   },
   "author": {
     "name": "Cédric",
