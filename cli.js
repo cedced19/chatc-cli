@@ -24,6 +24,10 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('%7B%7Buser.avatar%7D%7D', function(req, res) {
+    res.end();
+});
+
 app.get('/users', function(req, res) {
         res.json(users);
 });
