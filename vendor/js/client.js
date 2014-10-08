@@ -27,9 +27,9 @@
           event.preventDefault();
 
           if($('#mail').val() == ''){
-                alert('You must enter a  mail!');
+                sweetAlert('Oops...', 'You must enter a  mail!', 'error');
           }else if($('#username').val() == ''){
-                alert('You must enter a nickname!');
+                sweetAlert('Oops...', 'You must enter a nickname!', 'error');
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
           };
@@ -38,8 +38,9 @@
 
         $('#msgform').submit(function(event){
           event.preventDefault();
-          if($('#message').val() == ''){
-              alert('You must enter a  message!');
+          var message = $('#message').val().replace(/ /g, '');;
+          if(message == ''){
+              sweetAlert('Oops...', 'You must enter a  message!', 'error');
             }else{
               socket.emit('newmsg', {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
@@ -63,7 +64,7 @@
         });
 
         socket.on('logerr', function(message){
-          alert(message);
+          sweetAlert('Oops...', message, 'error');
         });
 
         socket.on('disusr', function(user){

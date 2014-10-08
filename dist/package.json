@@ -1,6 +1,6 @@
 {
   "name": "chatc-cli",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "A chat with Socket.io",
   "main": "cli.js",
   "engines": {
@@ -39,7 +39,6 @@
     "grunt-usemin": "^2.2.0",
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-concat": "^0.5.0",
-    "grunt-uncss": "^0.3.6",
     "grunt-autoprefixer": "^1.0.1"
   },
   "author": {
