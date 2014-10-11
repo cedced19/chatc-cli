@@ -25,10 +25,11 @@
 
         $('#loginform').submit(function(event){
           event.preventDefault();
-
-          if($('#mail').val() == ''){
+          var mail = $('#mail').val().replace(/ /g, ''),
+          username = $('username').val().replace(/ /g, '');
+          if(mail == ''){
                 sweetAlert('Oops...', 'You must enter a  mail!', 'error');
-          }else if($('#username').val() == ''){
+          }else if(username == ''){
                 sweetAlert('Oops...', 'You must enter a nickname!', 'error');
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
@@ -38,7 +39,7 @@
 
         $('#msgform').submit(function(event){
           event.preventDefault();
-          var message = $('#message').val().replace(/ /g, '');;
+          var message = $('#message').val().replace(/ /g, '');
           if(message == ''){
               sweetAlert('Oops...', 'You must enter a  message!', 'error');
             }else{
