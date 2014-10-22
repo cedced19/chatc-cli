@@ -26,7 +26,7 @@
         $('#loginform').submit(function(event){
           event.preventDefault();
           var mail = $('#mail').val().replace(/ /g, ''),
-          username = $('username').val().replace(/ /g, '');
+          username = $('#username').val().replace(/ /g, '');
           if(mail == ''){
                 sweetAlert('Oops...', 'You must enter a  mail!', 'error');
           }else if(username == ''){

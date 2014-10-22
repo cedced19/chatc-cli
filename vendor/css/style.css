@@ -103,11 +103,6 @@ audio{
     left: 74px;
     right: 9px;
     width: 80%;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
     -webkit-box-shadow: 0px 1px 3px #74C094 inset;
     -moz-box-shadow: 0px 1px 3px #74C094 inset;
     box-shadow: 0px 1px 3px #74C094 inset; }
@@ -155,12 +150,7 @@ audio{
 
   #messages img {
     position: absolute;
-    display: block;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px; }
+    display: block;}
   #messages .info {
     margin-left: 65px; }
   #messages strong {
@@ -188,6 +178,9 @@ audio{
 #msgtpl {
   display: none; }
 
+#message {
+    outline: none;}
+
 #login {
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -210,11 +203,6 @@ audio{
       height: 30px;
       outline: none;
       padding: 0 5px;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ms-border-radius: 6px;
-      -o-border-radius: 6px;
-      border-radius: 6px;
       -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
       -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
       box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1); }

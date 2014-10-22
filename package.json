@@ -1,6 +1,6 @@
 {
   "name": "chatc-cli",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A chat with Socket.io",
   "main": "cli.js",
   "engines": {
