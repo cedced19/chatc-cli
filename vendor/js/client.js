@@ -27,10 +27,10 @@
           event.preventDefault();
           var mail = $('#mail').val().replace(/ /g, ''),
           username = $('#username').val().replace(/ /g, '');
-          if(mail == ''){
-                sweetAlert('Oops...', 'You must enter a  mail!', 'error');
-          }else if(username == ''){
-                sweetAlert('Oops...', 'You must enter a nickname!', 'error');
+          if(username == ''){
+                sweetAlert('Oops...', 'You must enter a  username!', 'error');
+          }else if(mail == ''){
+                socket.emit('login', {username: $('#username').val(), mail: generateId()});
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
           };
@@ -98,6 +98,15 @@
           $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
         }
 
-
+        function generateId() {
+                 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
+                 var stringLength = 8;
+                 var randomstring = "";
+                 for(var i = 0; i < stringLength; i++) {
+                    var rnum = Math.floor(Math.random() * chars.length);
+                    randomstring += chars.substring(rnum, rnum + 1);
+            }
+            return randomstring;
+        }
 
       })(jQuery);
