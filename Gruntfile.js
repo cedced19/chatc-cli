@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             'favicon.ico',
             'sound.mp3',
             'sound.ogg',
-            'cli.js'
+            'chatc.js'
           ],
           dest: 'dist/'
         }]

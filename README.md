@@ -12,10 +12,18 @@ It's a simple chat.
 
 ```bash
 $ npm install -g chat-cli
-$ chat <port>
+$ chat
 ```
 
 ![](demo.png)
+
+##Options
+
+    -h, --help                  output usage information
+
+    -V, --version               output the version number
+
+    -p, --port [number]          specified the port
 
 
 ##Yeoman genertor:

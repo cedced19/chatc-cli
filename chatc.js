@@ -7,26 +7,16 @@ var md5 = require('MD5'),
       serveStatic = require('serve-static'),
       path = require('path'),
       fs = require('fs'),
-      chalk = require('chalk'),
-      port = process.argv.slice(2);
+      program = require('commander'),
+      chalk = require('chalk');
 
-if(port.length == 0){
-    console.log(chalk.red('You must enter a port!'));
-    process.exit();
-}
+program
+  .version(require('./package.json').version)
+  .option('-p, --port [number]', 'specified the port')
+  .parse(process.argv);
 
 var users = new Object(),
       messages = new Array();
-
-app.get('/', function(req, res) {
-  fs.readFile(__dirname + '/index.html', function(err, data) {
-    res.end(data);
-  });
-});
-
-app.get('%7B%7Buser.avatar%7D%7D', function(req, res) {
-    res.end();
-});
 
 app.get('/users', function(req, res) {
         res.json(users);
@@ -41,7 +31,13 @@ app.use(serveStatic(__dirname));
 
 var server = require('http').createServer(app);
 
-server.listen(port[0], function() {
+if (!isNaN(parseFloat(program.port)) && isFinite(program.port)){
+  var port = program.port;
+}else{
+  var port = 7770;
+}
+
+server.listen(port, function() {
     console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
     opn('http://localhost:' + port);
 });
@@ -94,7 +90,7 @@ io.sockets.on('connection', function(socket){
     });
 });
 
-function getTime(){
+var getTime = function (){
   var date = new Date(),
     h = date.getHours(),
     m = date.getMinutes();
