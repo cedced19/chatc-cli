@@ -10,14 +10,14 @@
         $('#msgtpl').remove();
         $('#msgtpl-line').remove();
 
-         $.getJSON(uri + '/users', function (users) {
+         $.getJSON(uri + '/api/users', function (users) {
           for (var user in users){
             displayUser(users[user]);
           }
          });
 
 
-         $.getJSON(uri + '/messages', function (messages) {
+         $.getJSON(uri + '/api/messages', function (messages) {
           for (var message in messages){
             displayMessage(messages[message]);
           }
@@ -33,7 +33,7 @@
                 socket.emit('login', {username: $('#username').val(), mail: generateId()});
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
-          };
+          }
           return false;
           });
 
@@ -45,7 +45,7 @@
             }else{
               socket.emit('newmsg', {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
-            };
+            }
             $('#message').focus();
             return false;
         });
@@ -109,4 +109,4 @@
             return randomstring;
         }
 
-      })(jQuery);
+})(jQuery);

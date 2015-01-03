@@ -11,8 +11,6 @@ module.exports = function(grunt) {
             'package.json',
             'vendor/**/*',
             'favicon.ico',
-            'sound.mp3',
-            'sound.ogg',
             'chatc.js'
           ],
           dest: 'dist/'

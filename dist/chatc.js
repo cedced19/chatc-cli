@@ -8,21 +8,23 @@ var md5 = require('MD5'),
       path = require('path'),
       fs = require('fs'),
       program = require('commander'),
-      chalk = require('chalk');
+      pkg = require('./package.json'),
+      colors = require('colors'),
+      port = 7770;
 
 program
-  .version(require('./package.json').version)
+  .version(pkg.version)
   .option('-p, --port [number]', 'specified the port')
   .parse(process.argv);
 
-var users = new Object(),
-      messages = new Array();
+var users = {},
+    messages = [];
 
-app.get('/users', function(req, res) {
+app.get('/api/users', function(req, res) {
         res.json(users);
 });
 
-app.get('/messages', function(req, res) {
+app.get('/api/messages', function(req, res) {
         res.json(messages);
 });
 
@@ -32,18 +34,21 @@ app.use(serveStatic(__dirname));
 var server = require('http').createServer(app);
 
 if (!isNaN(parseFloat(program.port)) && isFinite(program.port)){
-  var port = program.port;
-}else{
-  var port = 7770;
+    port = program.port;
 }
 
 server.listen(port, function() {
-    console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
+    require('check-update')({packageName: pkg.name, packageVersion: pkg.version, isCLI: true}, function(err, latestVersion, defaultMessage){
+        if(!err){
+            console.log(defaultMessage);
+        }
+    });
+    console.log('Server running at\n  => '+ colors.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
     opn('http://localhost:' + port);
 });
 
 var io = require('socket.io').listen(server);
-var users = new Object();
+var users = {};
 
 
 io.sockets.on('connection', function(socket){
@@ -96,4 +101,4 @@ var getTime = function (){
     m = date.getMinutes();
 
   return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-}
+};

@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "MD5": "^1.2.1",
-    "chalk": "^0.5.1",
+    "check-update": "0.0.5",
+    "colors": "^1.0.3",
     "commander": "^2.5.0",
     "express": "^4.8.5",
     "opn": "^1.0.0",

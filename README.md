@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![Dependencies](https://david-dm.org/cedced19/ChatC-Web.png)](https://david-dm.org/cedced19/ChatC-Web)
-[![devDependencies](https://david-dm.org/cedced19/ChatC-Web/dev-status.png)](https://david-dm.org/cedced19/ChatC-Web#info=devDependencies)
 [![NPM version](https://badge.fury.io/js/chatc-cli.svg)](http://badge.fury.io/js/chatc-cli)
 
 A chat with Socket.io and Node.js !
@@ -35,23 +33,3 @@ $ npm install -g yo
 $ npm install -g generator-chat
 $ yo chat
 ```
-
-##Developement
-
-To launch in developpement:
-
-```bash
-$ npm install
-$ node cli.js
-```
-
-To launch in release:
-
-```bash
-$ npm install
-$ grunt
-$ cd dist/
-$ node cli.js
-```
-
-NOTE: dist/ is the dist folder.
