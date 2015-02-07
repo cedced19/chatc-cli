@@ -7,10 +7,13 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: [
-            '*.html',
+            'index.html',
             'package.json',
             'vendor/**/*',
             'favicon.ico',
+            'favicon.ico',
+            'lib/*.js',
+            'README.md',
             'chatc.js'
           ],
           dest: 'dist/'

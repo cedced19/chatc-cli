@@ -1,4 +1,4 @@
-#ChatC-Web
+# ChatC-Web
 
 [![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
@@ -15,7 +15,7 @@ $ chat
 
 ![](demo.png)
 
-##Options
+## Options
 
     -h, --help                  output usage information
 
@@ -24,7 +24,7 @@ $ chat
     -p, --port [number]          specified the port
 
 
-##Yeoman genertor:
+## Yeoman genertor:
 
 Yeoman genertor was created to select color and language.
 

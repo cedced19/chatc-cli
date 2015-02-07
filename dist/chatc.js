@@ -1,53 +1,73 @@
 #!/usr/bin/env node
 'use strict';
 var md5 = require('MD5'),
-      opn = require('opn'),
-      express = require('express'),
-      app = express(),
-      serveStatic = require('serve-static'),
+      hapi = require('hapi'),
+      app = new hapi.Server(),
       path = require('path'),
       fs = require('fs'),
       program = require('commander'),
       pkg = require('./package.json'),
       colors = require('colors'),
-      port = 7770;
+      port = 7770,
+      users = {},
+      messages = [];
 
 program
   .version(pkg.version)
   .option('-p, --port [number]', 'specified the port')
   .parse(process.argv);
 
-var users = {},
-    messages = [];
-
-app.get('/api/users', function(req, res) {
-        res.json(users);
-});
-
-app.get('/api/messages', function(req, res) {
-        res.json(messages);
-});
-
-
-app.use(serveStatic(__dirname));
-
-var server = require('http').createServer(app);
-
 if (!isNaN(parseFloat(program.port)) && isFinite(program.port)){
     port = program.port;
 }
 
-server.listen(port, function() {
+app.connection({ port: port }); 
+
+app.route({
+    method: 'GET',
+    path: '/api/',
+    handler: function (request, reply) {
+        reply({users: users, messages: messages});
+    }
+});
+
+app.route({
+    method: 'GET',
+    path: '/vendor/{param*}',
+    handler: {
+        directory: {
+            path: './vendor/'
+        }
+    }
+});
+
+app.route({
+    method: 'GET',
+    path: '/',
+    handler: function (request, reply) {
+        reply.file('index.html');
+    }
+});
+
+
+app.route({
+    method: 'GET',
+    path: '/favicon.ico',
+    handler: function (request, reply) {
+        reply.file('favicon.ico');
+    }
+});
+
+app.start(function () {
     require('check-update')({packageName: pkg.name, packageVersion: pkg.version, isCLI: true}, function(err, latestVersion, defaultMessage){
         if(!err){
             console.log(defaultMessage);
         }
     });
     console.log('Server running at\n  => '+ colors.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
-    opn('http://localhost:' + port);
 });
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(app.listener);
 var users = {};
 
 
@@ -56,7 +76,7 @@ io.sockets.on('connection', function(socket){
 
     socket.on('newmsg', function(message){
         message.user = me;
-        message.time = getTime();
+        message.time = require('./lib/time')();
         if(messages.length > 10){
           messages.shift();
         }
@@ -94,11 +114,3 @@ io.sockets.on('connection', function(socket){
        io.sockets.emit('disusr', me);
     });
 });
-
-var getTime = function (){
-  var date = new Date(),
-    h = date.getHours(),
-    m = date.getMinutes();
-
-  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-};

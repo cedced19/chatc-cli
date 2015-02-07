@@ -1,6 +1,6 @@
 {
   "name": "chatc-cli",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A chat with Socket.io",
   "main": "chatc.js",
   "engines": {
@@ -14,9 +14,7 @@
     "check-update": "0.0.5",
     "colors": "^1.0.3",
     "commander": "^2.5.0",
-    "express": "^4.8.5",
-    "opn": "^1.0.0",
-    "serve-static": "^1.5.3",
+    "hapi": "^8.1.0",
     "socket.io": "^1.0.6"
   },
   "repository": {
