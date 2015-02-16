@@ -1,6 +1,6 @@
-# ChatC-Web
+# Chat C for CLI
 
-[![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)
+[![Build Status](https://travis-ci.org/cedced19/chatc-cli.svg?branch=master)](https://travis-ci.org/cedced19/chatc-cli)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![NPM version](https://badge.fury.io/js/chatc-cli.svg)](http://badge.fury.io/js/chatc-cli)
 
@@ -13,16 +13,17 @@ $ npm install -g chat-cli
 $ chat
 ```
 
-![](demo.png)
+![](https://raw.githubusercontent.com/cedced19/ChatC-Web/master/demo.png)
 
 ## Options
 
-    -h, --help                  output usage information
+```
+-h, --help                  output usage information
 
-    -V, --version               output the version number
+-V, --version               output the version number
 
-    -p, --port [number]          specified the port
-
+-p, --port [number]          specified the port
+```
 
 ## Yeoman genertor:
 

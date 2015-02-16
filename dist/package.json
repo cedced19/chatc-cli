@@ -1,6 +1,6 @@
 {
   "name": "chatc-cli",
-  "version": "0.2.3",
+  "version": "0.2.3-1",
   "description": "A chat with Socket.io",
   "main": "chatc.js",
   "engines": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cedced19/ChatC-Web"
+    "url": "git://github.com/cedced19/chatc-cli"
   },
   "keywords": [
     "chat",
@@ -30,6 +30,10 @@
     "realtime",
     "cli"
   ],
+  "bugs": {
+    "url": "https://github.com/cedced19/chatc-cli/issues"
+  },
+  "homepage": "https://github.com/cedced19/chatc-cli",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-uglify": "~0.6.0",
