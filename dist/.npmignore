@@ -1,8 +1,0 @@
-.npmignore
-vendor/js/client.js
-vendor/js/jquery.min.js
-vendor/js/mustache.js
-vendor/js/twitter-text.js
-vendor/js/mute.js
-vendor/css/fontello.css
-vendor/css/style.css

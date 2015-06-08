@@ -3,8 +3,6 @@
 var md5 = require('MD5'),
       hapi = require('hapi'),
       app = new hapi.Server(),
-      path = require('path'),
-      fs = require('fs'),
       program = require('commander'),
       pkg = require('./package.json'),
       colors = require('colors'),
@@ -68,7 +66,6 @@ app.start(function () {
 });
 
 var io = require('socket.io').listen(app.listener);
-var users = {};
 
 
 io.sockets.on('connection', function(socket){
