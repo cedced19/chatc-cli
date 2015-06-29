@@ -3,8 +3,6 @@
 var md5 = require('MD5'),
       hapi = require('hapi'),
       app = new hapi.Server(),
-      path = require('path'),
-      fs = require('fs'),
       program = require('commander'),
       pkg = require('./package.json'),
       colors = require('colors'),
@@ -21,13 +19,20 @@ if (!isNaN(parseFloat(program.port)) && isFinite(program.port)){
     port = program.port;
 }
 
-app.connection({ port: port }); 
+app.connection({ port: port });
 
 app.route({
     method: 'GET',
     path: '/api/',
     handler: function (request, reply) {
-        reply({users: users, messages: messages});
+        var discret = {users: users, messages: messages};
+        for (var user in discret.users) {
+          delete discret.users[user].mail;
+        }
+        for (var message in discret.messages) {
+          delete discret.messages[message].user.mail;
+        }
+        reply(discret);
     }
 });
 
@@ -68,7 +73,6 @@ app.start(function () {
 });
 
 var io = require('socket.io').listen(app.listener);
-var users = {};
 
 
 io.sockets.on('connection', function(socket){

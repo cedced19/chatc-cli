@@ -1,60 +1,59 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <!-- build:css vendor/css/styles.css -->
-    <link rel="stylesheet" href="vendor/css/style.css">
-    <link rel="stylesheet" href="vendor/css/icono.css">
-    <link rel="stylesheet" href="vendor/css/sweet-alert.css">
-    <!-- endbuild -->
-    <title>Chat C</title>
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<head>
+		<meta charset="utf-8">
+		<!-- build:css vendor/css/styles.css -->
+		<link rel="stylesheet" href="vendor/css/style.css">
+		<link rel="stylesheet" href="vendor/css/icono.css">
+		<link rel="stylesheet" href="vendor/css/sweet-alert.css">
+		<!-- endbuild -->
+		<title>Chat C</title>
+		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-  </head>
+	</head>
 
-  <body>
+	<body>
 
-    <div id="users">
-    </div>
-    <div id="messages">
-        <div class="message" id="msgtpl" style="display:none;">
-             <img src="{{user.avatar}}">
-            <div class="info">
-                <p><strong>{{user.username}}</strong></p>
-                <p>{{{message}}}</p>
-                <span class="date">{{time}}</span>
-            </div>
-        </div>
-    </div>
+		<div id="users"></div>
+		<div id="messages"></div>
 
-    <audio preload="auto" id="sound">
-      <source src="vendor/sound/sound.mp3" type="audio/mp3">
-      <source src="vendor/sound/sound.ogg" type="audio/ogg">
-    </audio>
+		<audio preload="auto" id="sound">
+			<source src="vendor/sound/sound.mp3" type="audio/mp3">
+			<source src="vendor/sound/sound.ogg" type="audio/ogg">
+		</audio>
 
-    <div id="login">
-      <form action="" id="loginform">
-        <input type="text" name="login" id="username" placeholder="Nickname">
-        <input type="text" name="mail" id="mail" placeholder="Mail">
-        <br>
-        <input type="submit" value="Chat!">
-      </form>
-    </div>
+		<div id="login">
+			<form action="" id="loginform">
+				<input type="text" name="login" id="username" placeholder="Nickname">
+				<br>
+				<input type="text" name="mail" id="mail" placeholder="Mail">
+				<br>
+				<input type="submit" value="Chat!">
+			</form>
+		</div>
 
-    <form action="" id="msgform">
-      <input type="text" id="message" class="text"/>
-      <i class="icono-volume" id="unmute"></i>
-      <i class="icono-volumeMedium" id="mute"></i>
-    </form>
+		<form action="" id="msgform">
+			<input type="text" id="message" class="text"/>
+			<i class="icono-volume" id="unmute"></i>
+			<i class="icono-volumeMedium" id="mute"></i>
+		</form>
 
-    <script src="socket.io/socket.io.js" type="text/javascript"></script>
+		<script id="message-template" type="text/x-tmpl-mustache">
+			<img src="{{user.avatar}}">
+			<div class="info">
+				<p><strong>{{user.username}}</strong></p>
+				<p>{{{message}}}</p>
+				<span class="date">{{time}}</span>
+			</div>
+		</script>
 
-    <!-- build:js vendor/js/scripts.js -->
-    <script src="vendor/js/jquery.min.js" type="text/javascript"></script>
-    <script src="vendor/js/mustache.js" type="text/javascript"></script>
-    <script src="vendor/js/mute.js" type="text/javascript"></script>
-    <script src="vendor/js/twitter-text.js" type="text/javascript"></script>
-    <script src="vendor/js/sweet-alert.js" type="text/javascript"></script>
-    <script src="vendor/js/app.js" type="text/javascript"></script>
-    <!-- endbuild -->
-  </body>
+		<script src="socket.io/socket.io.js" type="text/javascript"></script>
+		<!-- build:js vendor/js/scripts.js -->
+		<script src="vendor/js/jquery.min.js" type="text/javascript"></script>
+		<script src="vendor/js/mustache.js" type="text/javascript"></script>
+		<script src="vendor/js/mute.js" type="text/javascript"></script>
+		<script src="vendor/js/twitter-text.js" type="text/javascript"></script>
+		<script src="vendor/js/sweet-alert.js" type="text/javascript"></script>
+		<script src="vendor/js/app.js" type="text/javascript"></script>
+		<!-- endbuild -->
+	</body>
 </html>

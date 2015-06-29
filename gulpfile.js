@@ -29,13 +29,13 @@ gulp.task('html', function () {
     return gulp.src('index.html')
         .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', autoprefixer({ 
-            browsers: ['last 2 versions', 'ie 8', 'ie 9'] 
-        })))
         .pipe(gulpif('*.css', minifyCss()))
+        .pipe(gulpif('*.css', autoprefixer({
+            browsers: ['last 2 versions', 'ie 8', 'ie 9']
+        })))
         .pipe(assets.restore())
         .pipe(useref())
-        .pipe(gulpif('*.html', htmlmin({collapseWhitespace: true})))
+        .pipe(gulpif('*.html', htmlmin({collapseWhitespace: true, processScripts:['text/x-tmpl-mustache'] })))
         .pipe(gulp.dest('dist'));
 });
 

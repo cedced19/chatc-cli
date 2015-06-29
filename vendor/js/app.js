@@ -1,10 +1,9 @@
 (function($){
-        var msg = $('#msgtpl').html(),
-              lastsender = false,
+var lastsender = false,
               currentusr = '',
               uri = 'http://' + window.location.host,
               socket = io.connect(window.location.host);
-    
+
         var displayUser = function (user) {
            if(user.username == currentusr){
             user.username = 'Me';
@@ -19,10 +18,10 @@
                 $('#sound')[0].play();
             }
 
-          $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
+          $('#messages').append( '<div class="message">' + Mustache.render($('#message-template').html(), message) + '</div>' );
           $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
         }
-        
+
         var generateId = function () {
                  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
                  var stringLength = 8;
@@ -33,9 +32,7 @@
             }
             return randomstring;
         }
-    
-    
-        $('#msgtpl').remove();
+
 
 
          $.getJSON(uri + '/api/', function (data) {

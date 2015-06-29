@@ -1,7 +1,6 @@
 # Chat C for CLI
 
 [![Build Status](https://travis-ci.org/cedced19/chatc-cli.svg?branch=master)](https://travis-ci.org/cedced19/chatc-cli)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 [![NPM version](https://badge.fury.io/js/chatc-cli.svg)](http://badge.fury.io/js/chatc-cli)
 
 A chat with Socket.io and Node.js !
